@@ -10,7 +10,9 @@ const radioOptions = [
 
 const autoSelectRadioButtons = () => {
   const city = localStorage.getItem("city");
-  document.querySelector(`#${city}`).checked = true;
+  if (document.querySelector(`#${city}`)) {
+    document.querySelector(`#${city}`).checked = true;
+  }
   radioOptions.forEach((option) => {
     document.querySelector(`#${city + option}`).checked = true;
   });
