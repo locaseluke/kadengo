@@ -25,6 +25,21 @@ const registerPostalCode = (postalCode) => {
   }
 
   document.querySelector(`#${localStorage.getItem("city")}`).checked = true;
+  document.querySelector(
+    `#${localStorage.getItem("city")}installername`
+  ).checked = true;
+  document.querySelector(
+    `#${localStorage.getItem("city")}installeravatar`
+  ).checked = true;
+  document.querySelector(
+    `#${localStorage.getItem("city")}totalprice`
+  ).checked = true;
+  document.querySelector(
+    `#${localStorage.getItem("city")}monthlyinstalmentprice`
+  ).checked = true;
+  document.querySelector(
+    `#${localStorage.getItem("city")}totalinstalmentprice`
+  ).checked = true;
 };
 
 if (postalCodeInputEle) {
