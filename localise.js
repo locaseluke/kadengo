@@ -1,5 +1,20 @@
 // get the input element for postal code
 const postalCodeInputEle = document.querySelector(".text-field.postcode");
+const radioOptions = [
+  "installername",
+  "installeravatar",
+  "totalprice",
+  "monthlyinstalmentprice",
+  "totalinstalmentprice",
+];
+
+const autoSelectRadioButtons = () => {
+  const city = localStorage.getItem("city");
+  document.querySelector(`#${city}`).checked = true;
+  radioOptions.forEach((option) => {
+    document.querySelector(`#${city + option}`).checked = true;
+  });
+};
 
 const registerPostalCode = (postalCode) => {
   localStorage.setItem("postalCode", postalCode);
@@ -24,23 +39,14 @@ const registerPostalCode = (postalCode) => {
     localStorage.setItem("city", "goldcoast");
   }
 
-  document.querySelector(`#${localStorage.getItem("city")}`).checked = true;
-  document.querySelector(
-    `#${localStorage.getItem("city")}installername`
-  ).checked = true;
-  document.querySelector(
-    `#${localStorage.getItem("city")}installeravatar`
-  ).checked = true;
-  document.querySelector(
-    `#${localStorage.getItem("city")}totalprice`
-  ).checked = true;
-  document.querySelector(
-    `#${localStorage.getItem("city")}monthlyinstalmentprice`
-  ).checked = true;
-  document.querySelector(
-    `#${localStorage.getItem("city")}totalinstalmentprice`
-  ).checked = true;
+  autoSelectRadioButtons();
 };
+
+if (localStorage.getItem("city")) {
+  if (document.querySelector(`#${localStorage.getItem("city")}installername`)) {
+    autoSelectRadioButtons();
+  }
+}
 
 if (postalCodeInputEle) {
   postalCodeInputEle.addEventListener("change", (e) => {
