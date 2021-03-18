@@ -54,9 +54,10 @@ $(document).ready(function () {
       document.querySelector(`#${city}`).checked = true;
     }
     radioOptions.forEach((option) => {
-      document.querySelector(
-        `.${product}-prices #${city + option}`
-      ).checked = true;
+      console.log(`.${product}-prices #${city + option}`);
+      // document.querySelector(
+      //   `.${product}-prices #${city + option}`
+      // ).checked = true;
     });
   };
 
