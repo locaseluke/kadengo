@@ -2,8 +2,8 @@ $(document).ready(function () {
   // get the input element for postal code
   const postalCodeInputEle = document.querySelector(".text-field.postcode");
   const radioOptions = [
-    // "installername",
-    // "installeravatar",
+    "installername",
+    "installeravatar",
     "totalprice",
     "monthlyinstalmentprice",
     "totalinstalmentprice",
@@ -50,14 +50,23 @@ $(document).ready(function () {
 
   const autoSelectRadioButtons = (product) => {
     const city = localStorage.getItem("city");
-    if (document.querySelector(`#${city}`)) {
-      document.querySelector(`#${city}`).checked = true;
+    if (city) {
+      if (document.querySelector(`#${city}`)) {
+        document.querySelector(`#${city}`).checked = true;
+      }
+      if (!product && localStorage.getItem("product")) {
+        product = localStorage.getItem("product");
+      }
+      radioOptions.forEach((option) => {
+        if (option === "installername" || option === "installeravatar") {
+          document.querySelector(`#${city + option}`).checked = true;
+        } else {
+          document.querySelector(
+            `.${product}-prices #${city + option}`
+          ).checked = true;
+        }
+      });
     }
-    radioOptions.forEach((option) => {
-      document.querySelector(
-        `.${product}-prices #${city + option}`
-      ).checked = true;
-    });
   };
 
   // Match the class of the dropdown label to the button ID to show it and hide the others (in case the user changes the option)
@@ -65,30 +74,35 @@ $(document).ready(function () {
     $("#ks09").show();
     $("#ks12,#ks18,#ks24,#ks28").hide();
     autoSelectRadioButtons("ks09");
+    localStorage.setItem("ks09");
   });
 
   $(".ks12").click(function () {
     $("#ks12").show();
     $("#ks09,#ks18,#ks24,#ks28").hide();
     autoSelectRadioButtons("ks12");
+    localStorage.setItem("ks12");
   });
 
   $(".ks18").click(function () {
     $("#ks18").show();
     $("#ks09,#ks12,#ks24,#ks28").hide();
     autoSelectRadioButtons("ks18");
+    localStorage.setItem("ks18");
   });
 
   $(".ks24").click(function () {
     $("#ks24").show();
     $("#ks09,#ks12,#ks18,#ks28").hide();
     autoSelectRadioButtons("ks24");
+    localStorage.setItem("ks24");
   });
 
   $(".ks28").click(function () {
     $("#ks28").show();
     $("#ks09,#ks12,#ks18,#ks24").hide();
     autoSelectRadioButtons("ks28");
+    localStorage.setItem("ks28");
   });
 
   const registerPostalCode = (postalCode) => {
@@ -113,6 +127,8 @@ $(document).ready(function () {
     } else {
       localStorage.setItem("city", "goldcoast");
     }
+
+    autoSelectRadioButtons();
   };
 
   // if (localStorage.getItem("city")) {
