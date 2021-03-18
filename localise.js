@@ -2,8 +2,8 @@ $(document).ready(function () {
   // get the input element for postal code
   const postalCodeInputEle = document.querySelector(".text-field.postcode");
   const radioOptions = [
-    "installername",
-    "installeravatar",
+    // "installername",
+    // "installeravatar",
     "totalprice",
     "monthlyinstalmentprice",
     "totalinstalmentprice",
@@ -54,10 +54,9 @@ $(document).ready(function () {
       document.querySelector(`#${city}`).checked = true;
     }
     radioOptions.forEach((option) => {
-      console.log(`.${product}-prices #${city + option}`);
-      // document.querySelector(
-      //   `.${product}-prices #${city + option}`
-      // ).checked = true;
+      document.querySelector(
+        `.${product}-prices #${city + option}`
+      ).checked = true;
     });
   };
 
