@@ -1,4 +1,14 @@
 $(document).ready(function () {
+  // get the input element for postal code
+  const postalCodeInputEle = document.querySelector(".text-field.postcode");
+  const radioOptions = [
+    "installername",
+    "installeravatar",
+    "totalprice",
+    "monthlyinstalmentprice",
+    "totalinstalmentprice",
+  ];
+
   $("label#next01").click(function () {
     $("html, body").animate(
       {
@@ -80,16 +90,6 @@ $(document).ready(function () {
     $("#ks09,#ks12,#ks18,#ks24").hide();
     autoSelectRadioButtons("ks28");
   });
-
-  // get the input element for postal code
-  const postalCodeInputEle = document.querySelector(".text-field.postcode");
-  const radioOptions = [
-    "installername",
-    "installeravatar",
-    "totalprice",
-    "monthlyinstalmentprice",
-    "totalinstalmentprice",
-  ];
 
   const registerPostalCode = (postalCode) => {
     localStorage.setItem("postalCode", postalCode);
