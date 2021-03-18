@@ -74,35 +74,35 @@ $(document).ready(function () {
     $("#ks09").show();
     $("#ks12,#ks18,#ks24,#ks28").hide();
     autoSelectRadioButtons("ks09");
-    localStorage.setItem("ks09");
+    localStorage.setItem("product", "ks09");
   });
 
   $(".ks12").click(function () {
     $("#ks12").show();
     $("#ks09,#ks18,#ks24,#ks28").hide();
     autoSelectRadioButtons("ks12");
-    localStorage.setItem("ks12");
+    localStorage.setItem("product", "ks12");
   });
 
   $(".ks18").click(function () {
     $("#ks18").show();
     $("#ks09,#ks12,#ks24,#ks28").hide();
     autoSelectRadioButtons("ks18");
-    localStorage.setItem("ks18");
+    localStorage.setItem("product", "ks18");
   });
 
   $(".ks24").click(function () {
     $("#ks24").show();
     $("#ks09,#ks12,#ks18,#ks28").hide();
     autoSelectRadioButtons("ks24");
-    localStorage.setItem("ks24");
+    localStorage.setItem("product", "ks24");
   });
 
   $(".ks28").click(function () {
     $("#ks28").show();
     $("#ks09,#ks12,#ks18,#ks24").hide();
     autoSelectRadioButtons("ks28");
-    localStorage.setItem("ks28");
+    localStorage.setItem("product", "ks28");
   });
 
   const registerPostalCode = (postalCode) => {
@@ -128,7 +128,9 @@ $(document).ready(function () {
       localStorage.setItem("city", "goldcoast");
     }
 
-    autoSelectRadioButtons();
+    if (localStorage.getItem("product")) {
+      autoSelectRadioButtons();
+    }
   };
 
   // if (localStorage.getItem("city")) {
