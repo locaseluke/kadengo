@@ -133,14 +133,6 @@ $(document).ready(function () {
     }
   };
 
-  // if (localStorage.getItem("city")) {
-  //   if (
-  //     document.querySelector(`#${localStorage.getItem("city")}installername`)
-  //   ) {
-  //     autoSelectRadioButtons();
-  //   }
-  // }
-
   if (postalCodeInputEle) {
     postalCodeInputEle.addEventListener("change", (e) => {
       let postalCode;
@@ -176,5 +168,12 @@ $(document).ready(function () {
     };
 
     displayPrice();
+  }
+
+  if (document.querySelector(".productpage")) {
+    const city = localStorage.getItem("city");
+    if (city) {
+      $(`#${city}`).attr("checked", true);
+    }
   }
 });
