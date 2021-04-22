@@ -1,25 +1,4 @@
 $(document).ready(function () {
-  var nextSection = $("#firstbutton").attr("href");
-  var postCodeInput = $("input.postcode");
-  $("#firstbutton").attr("href", "#");
-
-  postCodeInput.on("keyup", function (e) {
-    let postcode = e.target.value;
-    if (postcode !== "") {
-      $("#firstbutton").attr("href", nextSection);
-    } else {
-      $("#firstbutton").attr("href", "#");
-    }
-  });
-
-  $("#firstbutton").on("click", function () {
-    if ($("#firstbutton").attr("href") === "#") {
-      $(".postcode-error").css("display", "block");
-    } else {
-      $(".postcode-error").css("display", "none");
-    }
-  });
-
   // get the input element for postal code
   const postalCodeInputEle = document.querySelector(".text-field.postcode");
   const radioOptions = [
@@ -196,5 +175,26 @@ $(document).ready(function () {
     if (city) {
       $(`#${city}`).attr("checked", true);
     }
+  }
+});
+
+var nextSection = $("#firstbutton").attr("href");
+var postCodeInput = $("input.postcode");
+$("#firstbutton").attr("href", "#");
+
+postCodeInput.on("keyup", function (e) {
+  let postcode = e.target.value;
+  if (postcode !== "") {
+    $("#firstbutton").attr("href", nextSection);
+  } else {
+    $("#firstbutton").attr("href", "#");
+  }
+});
+
+$("#firstbutton").on("click", function () {
+  if ($("#firstbutton").attr("href") === "#") {
+    $(".postcode-error").css("display", "block");
+  } else {
+    $(".postcode-error").css("display", "none");
   }
 });
