@@ -198,6 +198,7 @@ $(document).ready(function () {
       $(`#${city}`).attr("checked", true);
       $(`#${city}installerphonenumber`).attr("checked", true);
       $(`#${city}installeremail`).attr("checked", true);
+      $(`#${city}installername`).attr("checked", true);
     }
   }
 });
