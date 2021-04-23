@@ -73,10 +73,7 @@ $(document).ready(function () {
         product = localStorage.getItem("product");
       }
       radioOptions.forEach((option) => {
-        if (
-          option === "installername" ||
-          option === "installeravatar" ||
-        ) {
+        if (option === "installername" || option === "installeravatar") {
           document.querySelector(`#${city + option}`).checked = true;
         } else {
           document.querySelector(
