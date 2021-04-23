@@ -193,9 +193,9 @@ postCodeInput.on("keyup", function (e) {
 
 $("#firstbutton").on("click", function () {
   if ($("#firstbutton").attr("href") === "#") {
-    $(".postcode-error").css("display", "block");
+    $(".postcode-error").show();
   } else {
-    $(".postcode-error").css("display", "none");
+    $(".postcode-error").hide();
   }
 });
 
