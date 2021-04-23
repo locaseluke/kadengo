@@ -22,8 +22,6 @@ $(document).ready(function () {
     "totalprice",
     "monthlyinstalmentprice",
     "totalinstalmentprice",
-    "installeremail",
-    "installerphonenumber",
   ];
 
   $("label#next01").click(function () {
@@ -78,8 +76,6 @@ $(document).ready(function () {
         if (
           option === "installername" ||
           option === "installeravatar" ||
-          option === "installerphonenumber" ||
-          option === "installeremail"
         ) {
           document.querySelector(`#${city + option}`).checked = true;
         } else {
@@ -196,6 +192,8 @@ $(document).ready(function () {
     const city = localStorage.getItem("city");
     if (city) {
       $(`#${city}`).attr("checked", true);
+      $(`#${city}installerphonenumber`).attr("checked", true);
+      $(`#${city}installeremail`).attr("checked", true);
     }
   }
 });
