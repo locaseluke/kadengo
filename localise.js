@@ -201,6 +201,7 @@ $("#firstbutton").on("click", function () {
 
 // update the url params
 if (document.querySelector(".estimate-page")) {
+  console.log("page exists")
   if (history.pushState && localStorage.getItem("city")) {
     var newurl =
       window.location.protocol +
