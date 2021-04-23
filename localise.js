@@ -198,3 +198,18 @@ $("#firstbutton").on("click", function () {
     $(".postcode-error").hide();
   }
 });
+
+// update the url params
+if (document.querySelector(".productpage")) {
+  console.log("page exists")
+  if (history.pushState && localStorage.getItem("city")) {
+    var newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname +
+      "?city=" +
+      localStorage.getItem("city");
+    window.history.pushState({ path: newurl }, "", newurl);
+  }
+}
