@@ -1,3 +1,18 @@
+// update the url params
+if (document.querySelector(".productpage")) {
+  console.log("product page exists");
+  if (history.pushState && localStorage.getItem("city")) {
+    var newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname +
+      "?city=" +
+      localStorage.getItem("city");
+    window.history.pushState({ path: newurl }, "", newurl);
+  }
+}
+
 $(document).ready(function () {
   // get the input element for postal code
   const postalCodeInputEle = document.querySelector(".text-field.postcode");
@@ -198,18 +213,3 @@ $("#firstbutton").on("click", function () {
     $(".postcode-error").hide();
   }
 });
-
-// update the url params
-if (document.querySelector(".productpage")) {
-  console.log("product page exists");
-  if (history.pushState && localStorage.getItem("city")) {
-    var newurl =
-      window.location.protocol +
-      "//" +
-      window.location.host +
-      window.location.pathname +
-      "?city=" +
-      localStorage.getItem("city");
-    window.history.pushState({ path: newurl }, "", newurl);
-  }
-}
