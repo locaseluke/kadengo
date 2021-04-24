@@ -1,6 +1,5 @@
 // update the url params
 if (document.querySelector(".productpage")) {
-  console.log("product page exists");
   if (history.pushState && localStorage.getItem("city")) {
     var newurl =
       window.location.protocol +
@@ -200,6 +199,7 @@ $(document).ready(function () {
       $(`#${city}installeremail`).attr("checked", true);
       $(`#${city}installername`).attr("checked", true);
       $(`#${city}installeravatar`).attr("checked", true);
+      $("#hiddencity").attr("value", localStorage.getItem("city"));
     }
   }
 });
