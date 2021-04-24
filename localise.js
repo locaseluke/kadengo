@@ -194,12 +194,14 @@ $(document).ready(function () {
   if (document.querySelector(".productpage")) {
     const city = localStorage.getItem("city");
     if (city) {
-      document.querySelector(`#${city}`).checked = true;
-      document.querySelector(`#${city}installerphonenumber`).checked = true;
-      document.querySelector(`#${city}installeremail`).checked = true;
-      document.querySelector(`#${city}installername`).checked = true;
-      document.querySelector(`#${city}installeravatar`).checked = true;
-      $("#hiddencity").attr("value", localStorage.getItem("city"));
+      // document.querySelector(`#${city}`).checked = true;
+      // document.querySelector(`#${city}installerphonenumber`).checked = true;
+      // document.querySelector(`#${city}installeremail`).checked = true;
+      // document.querySelector(`#${city}installername`).checked = true;
+      // document.querySelector(`#${city}installeravatar`).checked = true;
+      // $("#hiddencity").attr("value", localStorage.getItem("city"));
+      document.querySelector("#citynew").checked = true;
+      document.querySelector("#citynew").value = city;
     }
   }
 });
