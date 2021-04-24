@@ -1,3 +1,11 @@
+const infos = {
+  goldcoast: "Jeremy",
+  perth: "Jack",
+  adelaide: "Jake",
+  melbourne: "Linden",
+  sydney: "Dane",
+};
+
 // update the url params
 if (document.querySelector(".productpage")) {
   if (history.pushState && localStorage.getItem("city")) {
@@ -195,13 +203,15 @@ $(document).ready(function () {
     const city = localStorage.getItem("city");
     if (city) {
       // document.querySelector(`#${city}`).checked = true;
-      // document.querySelector(`#${city}installerphonenumber`).checked = true;
-      // document.querySelector(`#${city}installeremail`).checked = true;
       // document.querySelector(`#${city}installername`).checked = true;
       // document.querySelector(`#${city}installeravatar`).checked = true;
       // $("#hiddencity").attr("value", localStorage.getItem("city"));
       document.querySelector("#citynew").checked = true;
       document.querySelector("#citynew").value = city;
+      document.querySelector("#installernamenew").checked = true;
+      document.querySelector("#installernamenew").value = infos[city];
+      document.querySelector(`#${city}installerphonenumber`).checked = true;
+      document.querySelector(`#${city}installeremail`).checked = true;
     }
   }
 });
