@@ -169,8 +169,8 @@ $(document).ready(function () {
       if (!!postalCode) {
         // register the postal code in localstorage
         registerPostalCode(parseInt(postalCode));
-        document.querySelector("#postecode").checked = true;
-        document.querySelector("#postecode").value = postalCode;
+        document.querySelector("#postcode").checked = true;
+        document.querySelector("#postcode").value = postalCode;
       }
     });
   }
