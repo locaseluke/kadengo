@@ -191,11 +191,13 @@ $(document).ready(function () {
     const displayPrice = () => {
       const city = localStorage.getItem("city");
       if (city) {
+        let price = $(
+          `.price-coll-list.${city} .price-spec:last-of-type`
+        ).text();
         $(`.price-coll-list`).hide();
         $(`.price-coll-list.${city}`).css("display", "block");
-        console.log(
-          $(`.price-coll-list.goldcoast .price-spec:last-of-type`).text()
-        );
+        document.querySelector("#price").checked = true;
+        document.querySelector("#price").value = price;
       }
     };
 
