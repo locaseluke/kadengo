@@ -169,8 +169,6 @@ $(document).ready(function () {
       if (!!postalCode) {
         // register the postal code in localstorage
         registerPostalCode(parseInt(postalCode));
-        document.querySelector("#postcode").checked = true;
-        document.querySelector("#postcode").value = postalCode;
       }
     });
   }
@@ -203,17 +201,16 @@ $(document).ready(function () {
 
   if (document.querySelector(".productpage")) {
     const city = localStorage.getItem("city");
+    const postalCode = localStorage.getItem("postalCode");
     if (city) {
-      // document.querySelector(`#${city}`).checked = true;
-      // document.querySelector(`#${city}installername`).checked = true;
-      // document.querySelector(`#${city}installeravatar`).checked = true;
-      // $("#hiddencity").attr("value", localStorage.getItem("city"));
       document.querySelector("#citynew").checked = true;
       document.querySelector("#citynew").value = city;
       document.querySelector("#installernamenew").checked = true;
       document.querySelector("#installernamenew").value = infos[city];
       document.querySelector(`#${city}installerphonenumber`).checked = true;
       document.querySelector(`#${city}installeremail`).checked = true;
+      document.querySelector("#postcode").checked = true;
+      document.querySelector("#postcode").value = postalCode;
     }
   }
 });
