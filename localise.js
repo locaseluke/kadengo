@@ -193,6 +193,9 @@ $(document).ready(function () {
       if (city) {
         $(`.price-coll-list`).hide();
         $(`.price-coll-list.${city}`).css("display", "block");
+        console.log(
+          $(`.price-coll-list.goldcoast .price-spec:last-of-type`).text()
+        );
       }
     };
 
