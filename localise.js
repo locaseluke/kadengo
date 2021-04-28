@@ -212,7 +212,7 @@ $(document).ready(function () {
     localStorage.setItem("emailaddress", email);
   });
 
-  addressField.on("change", function (e) {
+  addressField.on("blur", function (e) {
     let address = e.target.value;
     localStorage.setItem("gpaaddress", address);
   });
