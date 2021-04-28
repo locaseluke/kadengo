@@ -234,8 +234,8 @@ $(document).ready(function () {
       document.querySelector(`#${city}installeremail`).checked = true;
       document.querySelector("#postcode").checked = true;
       document.querySelector("#postcode").value = postalCode;
-      document.querySelector("#address").checked = true;
-      document.querySelector("#address").value = email;
+      document.querySelector("#email").checked = true;
+      document.querySelector("#email").value = email;
       document.querySelector("#address").checked = true;
       document.querySelector("#address").value = address;
     }
