@@ -196,8 +196,10 @@ $(document).ready(function () {
         ).text();
         $(`.price-coll-list`).hide();
         $(`.price-coll-list.${city}`).css("display", "block");
-        document.querySelector("#price").checked = true;
-        document.querySelector("#price").value = price;
+        if ($("#price")) {
+          document.querySelector("#price").checked = true;
+          document.querySelector("#price").value = price;
+        }
       }
     };
 
@@ -208,7 +210,7 @@ $(document).ready(function () {
 
   emailField.on("change", function (e) {
     let email = e.target.value;
-    localStorage.setItem(emailaddress);
+    localStorage.setItem("emailaddress", email);
   });
 
   if (document.querySelector(".productpage")) {
