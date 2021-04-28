@@ -187,7 +187,7 @@ $(document).ready(function () {
   }
 
   // display price
-  if (document.querySelectorAll(".price-coll-list")) {
+  if (document.querySelectorAll(".price-coll-list").length) {
     const displayPrice = () => {
       const city = localStorage.getItem("city");
       if (city) {
@@ -196,10 +196,8 @@ $(document).ready(function () {
         ).text();
         $(`.price-coll-list`).hide();
         $(`.price-coll-list.${city}`).css("display", "block");
-        if (document.querySelector("#price")) {
-          document.querySelector("#price").checked = true;
-          document.querySelector("#price").value = price;
-        }
+        document.querySelector("#price").checked = true;
+        document.querySelector("#price").value = price;
       }
     };
 
@@ -207,16 +205,23 @@ $(document).ready(function () {
   }
 
   const emailField = $("#Email-Address");
+  const addressField = $("#gpa");
 
   emailField.on("change", function (e) {
     let email = e.target.value;
     localStorage.setItem("emailaddress", email);
   });
 
+  addressField.on("change", function (e) {
+    let address = e.target.value;
+    localStorage.setItem("gpaaddress", address);
+  });
+
   if (document.querySelector(".productpage")) {
     const city = localStorage.getItem("city");
     const postalCode = localStorage.getItem("postalCode");
     const email = localStorage.getItem("emailaddress");
+    const address = localStorage.getItem("gpaaddress");
     if (city) {
       document.querySelector("#citynew").checked = true;
       document.querySelector("#citynew").value = city;
@@ -228,6 +233,8 @@ $(document).ready(function () {
       document.querySelector("#postcode").value = postalCode;
       document.querySelector("#address").checked = true;
       document.querySelector("#address").value = email;
+      document.querySelector("#address").checked = true;
+      document.querySelector("#address").value = address;
     }
   }
 });
