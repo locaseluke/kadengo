@@ -204,9 +204,17 @@ $(document).ready(function () {
     displayPrice();
   }
 
+  const emailField = $("#Email-Address");
+
+  emailField.on("change", function (e) {
+    let email = e.target.value;
+    localStorage.setItem(emailaddress);
+  });
+
   if (document.querySelector(".productpage")) {
     const city = localStorage.getItem("city");
     const postalCode = localStorage.getItem("postalCode");
+    const email = localStorage.getItem("emailaddress");
     if (city) {
       document.querySelector("#citynew").checked = true;
       document.querySelector("#citynew").value = city;
@@ -216,6 +224,8 @@ $(document).ready(function () {
       document.querySelector(`#${city}installeremail`).checked = true;
       document.querySelector("#postcode").checked = true;
       document.querySelector("#postcode").value = postalCode;
+      document.querySelector("#address").checked = true;
+      document.querySelector("#address").value = email;
     }
   }
 });
