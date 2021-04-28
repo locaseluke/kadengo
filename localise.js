@@ -196,7 +196,7 @@ $(document).ready(function () {
         ).text();
         $(`.price-coll-list`).hide();
         $(`.price-coll-list.${city}`).css("display", "block");
-        if ($("#price")) {
+        if (document.querySelector("#price")) {
           document.querySelector("#price").checked = true;
           document.querySelector("#price").value = price;
         }
