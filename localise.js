@@ -212,12 +212,13 @@ $(document).ready(function () {
     localStorage.setItem("emailaddress", email);
   });
 
-  const updateAddress = (address) => {
-    localStorage.setItem("gpaaddress", address);
+  const updateAddress = () => {
+    setTimeout(() => {
+      localStorage.setItem("gpaaddress", addressField.val());
+    }, 500);
   };
 
-  addressField.on("change", (e) => updateAddress(e.target.value));
-  addressField.on("blur", (e) => updateAddress(e.target.value));
+  addressField.on("blur", () => updateAddress());
 
   if (document.querySelector(".productpage")) {
     const city = localStorage.getItem("city");
