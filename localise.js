@@ -246,6 +246,9 @@ var nextSection = $("#firstbutton").attr("href");
 var postCodeInput = $("input.postcode");
 $("#firstbutton").attr("href", "#");
 
+$('.postcode').focus(function(){
+$(".postcode-error").hide();
+})
 
 postCodeInput.on("keyup", function (e) {
     let postcode = e.target.value;
@@ -255,6 +258,10 @@ postCodeInput.on("keyup", function (e) {
         $(".postcode-error").show();
     }
 });
+
+$('.postcode').focus(function(){
+$(".postcode-error").hide();
+})
 
 $("#wf-form-Quote-Wizard-2").submit(function (e) {
     if (postCodeInput.val() === '') {
