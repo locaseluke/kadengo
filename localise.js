@@ -248,18 +248,20 @@ $("#firstbutton").attr("href", "#");
 
 
 postCodeInput.on("keyup", function (e) {
-  let postcode = e.target.value;
-  if (postcode !== "") {
-    $("#firstbutton").attr("href", nextSection);
-  } else {
-    $("#firstbutton").attr("href", "#");
-  }
+    let postcode = e.target.value;
+    if (postcode !== "") {
+        $(".postcode-error").hide();
+    } else {
+        $(".postcode-error").show();
+    }
 });
 
-$("#firstbutton").on("click", function () {
-  if ($("#firstbutton").attr("href") === "#") {
-    $(".postcode-error").show();
-  } else {
-    $(".postcode-error").hide();
-  }
-});
+$("#wf-form-Quote-Wizard-2").submit(function (e) {
+    if (postCodeInput.val() === '') {
+        $(".postcode-error").show();
+
+        e.preventDefault();
+    } else {
+        $(".postcode-error").hide();
+    }
+ }); 
