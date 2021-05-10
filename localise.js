@@ -251,17 +251,20 @@ $(".postcode-error").hide();
 })
 
 postCodeInput.on("keyup", function (e) {
-    let postcode = e.target.value;
-    if (postcode !== "") {
-        $(".postcode-error").hide();
-    } else {
-        $(".postcode-error").show();
-    }
+let postcode = e.target.value;
+var code = e.keyCode || e.which;
+if (code == '9') {
+$(".postcode-error").hide();
+}
+else {
+if (postcode !== "") {
+$(".postcode-error").hide();
+} else {
+$(".postcode-error").show();
+}
+}
 });
 
-$('.postcode').focus(function(){
-$(".postcode-error").hide();
-})
 
 $("#wf-form-Quote-Wizard-2").submit(function (e) {
     if (postCodeInput.val() === '') {
