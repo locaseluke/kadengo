@@ -246,21 +246,20 @@ var nextSection = $("#firstbutton").attr("href");
 var postCodeInput = $("input.postcode");
 $("#firstbutton").attr("href", "#");
 
+
 postCodeInput.on("keyup", function (e) {
-    let postcode = e.target.value;
-    if (postcode !== "") {
-        $("#ks09,#ks12,#ks18,#ks24,#ks28").attr('disabled', false);
-    } else {
-        $("#ks09,#ks12,#ks18,#ks24,#ks28").attr('disabled', true);
-    }
+  let postcode = e.target.value;
+  if (postcode !== "") {
+    $("#firstbutton").attr("href", nextSection);
+  } else {
+    $("#firstbutton").attr("href", "#");
+  }
 });
 
-$("#ks09,#ks12,#ks18,#ks24,#ks28").on("click", function (e) {
-    e.preventDefault();
-    
-    if ($(this).attr("href") === "#") {
-        $(".postcode-error").show();
-    } else {
-        $(".postcode-error").hide();
-    }
+$("#firstbutton").on("click", function () {
+  if ($("#firstbutton").attr("href") === "#") {
+    $(".postcode-error").show();
+  } else {
+    $(".postcode-error").hide();
+  }
 });
